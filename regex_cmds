@@ -1,0 +1,37 @@
+#regex and notepad++ useful commands/searches
+
+##find duplicate and delete it
+^(.*?)$\s+?^(?=.*^\1$)
+
+##find dup and delete it all including first occurance
+^(.*\r?\n)\1+
+
+find repeated letters
+(\w+)+\1
+
+\s"(\w+)+\s*(")
+
+"(\w+)",
+
+^(?!.*([._%+-])\1)[A-Za-z0-9._%+-]+$
+
+^(?:[0-9A-Za-z]+|([._%+-])(?!\1))+$
+
+(?<![A-Z]\s)\b[A-Z]+\b(?!\s[A-Z])
+
+((\w+)\2?(?!\w\2))*
+
+(?<![A-Z]\s)\b[A-Z]+\b(?!\s[A-Z])
+
+
+(?sm)^"([a-z\d]+)"(?i)(?=.*^"(?=\1")(?-i)[A-Z\d]+")
+(?sm)^"([A-Z\d]+)"(?i)(?=.*^"(?=\1")(?-i)[a-z\d]+")
+
+(?sm)^"([a-z\d]+)"(?i)(?=(?:[^\n]*\n)+?"(?=\1")(?-i)[A-Z\d]+")
+(?sm)^("[a-z\d]+")(?i)((?:[^\n]*\n)*[^\n]*)\n(?=\1)(?-i)"[A-Z\d]+"[^\n]*
+
+(?sm)^"([a-z\d]+)"(?i)
+(?=(?:[^\n]*\n)+?"(?=\1")(?-i)[A-Z\d]+")
+
+(?sm)^("[a-z\d]+")(?i)
+((?:[^\n]*\n)*[^\n]*)\n(?=\1)(?-i)"[A-Z\d]+"[^\n]*
